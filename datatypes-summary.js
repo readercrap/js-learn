@@ -49,5 +49,9 @@ const myFunction = function (){
 
 console.log(typeof myFunction); // gives object function.
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++
+// Memory Space : 
+// Stack (Premitive) Heap (non-Premitive)
+
 
 
