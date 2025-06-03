@@ -1,7 +1,7 @@
 /*
 two types of data officially:
     - premitive
-    - non- premitive also called reference type.
+    - non- premitive also called reference type. When any variable cahnges data original data will be changed.
 
     difference : how data is stored in memory, according to that categorization of datatype is done.
 */
