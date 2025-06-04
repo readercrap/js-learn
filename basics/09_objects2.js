@@ -32,3 +32,24 @@ console.log("Object.assign way :: ", obj4)
 // or use spread way 
 const obj6 = {...obj1,...obj2,...obj5}
 console.log("Spread way :: ", obj6)
+
+// Destructure objects and JSON API :: 
+
+console.log(tinderUser);
+console.log("Keys :: ", Object.keys(tinderUser)); // keys of dictionary / object 
+console.log("Values :: ", Object.values(tinderUser)); // values in object
+console.log("Entries :: ", Object.entries(tinderUser)); // key:value pair as array
+console.log("===========================");
+
+const  course = {
+    courseName : "JS in hindi",
+    price : "999",
+    courseInstructor : "hitesh" , 
+}
+// course.courseInstructor
+// Now lets destructure to make code more readable .
+const {courseInstructor} = course
+console.log(courseInstructor);
+//lets make it more better
+const{courseInstructor: instructor} = course
+console.log(instructor)
