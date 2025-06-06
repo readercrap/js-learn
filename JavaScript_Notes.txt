@@ -1,0 +1,16 @@
+Javascript execution context ::
+
+
+
+Type of Execution Context (EC)
+- Global Execution context
+- Function Execution context 
+- Eval Execution Context 
+
+
+{ } -> Global Execution : this 
+    -> Memory Creation Phase . : only memory is allocated and created. by default initial values are alwways undefined 
+    -> Execution phase  : assigns values to variables allocated in memory which is initiallized to undefined. now a per code values are assigned.
+
+
+now all functions are executed in sandboxed environment as thread and returned back to its parent function.
