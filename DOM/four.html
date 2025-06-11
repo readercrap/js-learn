@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code | Dome elements</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // Add element 
+    function addLanguage(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`; // here whole tree is traversed, whcih is not optimized it tree contains lakhs of nodes.
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage("Python");
+    addLanguage("TypeScript");
+
+    function addOptiLanguage(langName){
+        const li = document.createElement("li") ; 
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("GoLang")
+
+    // Edit : 
+    const secondLang = document.querySelector("li:nth-child(2)") ; 
+    const newli = document.createElement("li");
+    newli.textContent = "Mojo" ; 
+    secondLang.replaceWith(newli);
+
+    //another way to edit :
+    // const firstLang = document.querySelector("li:first-child")
+    const firstLang = document.querySelector("li:nth-child(1)")
+    firstLang.outerHTML = "<li>C++</li>";
+
+    // remove 
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove(lastLang);
+    // document.querySelector("ul").removeChild(lastLang);// this one also works.
+
+</script>
+</html>
