@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Image</title>
+</head>
+<body style="background-color: #414141; color:aliceblue;">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan"     src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river"     src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl"       src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer"    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li> -->
+            <li><a style="color: aliceblue;" id="google">Google</a></li>
+        </ul>
+    </div>    
+</body>
+<script>
+/*
+Notes:
+- JS is a sequnetially running language.
+- events invoke on some activity like click, keyboard press , drag etc.
+--never put event diretly on elements, as it will crate problem when system grows, code grows. (non-advisable approach, avoid the approach)
+- in react it happens direclty , but reacts handle it properly, but in pure JS it is problematic.
+
+*/
+    // first approach is directly put onclick event on element.
+    // second approach to put onclick
+    // document.getElementById("owl").onclick = function(){
+    //     alert("owl clicked") // this is not good appraoch, use event listener. ther is Propagataion approach.
+    // }
+
+    //4th approach : attachEvent : it is used in early times where internet explorer was used.
+    //5th jQuery : on (this is event listener)
+
+    // third appraoch :
+    // document.getElementById("owl").addEventListener("click", function(e){
+    //     // console.log(e);
+    //     console.log(`Clicked at Client:: (${e.clientX},${e.clientY})`)
+    //     console.log(`Clicked at Screen :: (${e.screenX},${e.screenY})`)
+        
+    // },false) // default is false only, but for good practice we are mentioning it.
+    // things to read more about event :  
+    // type, timestamp, defaultPrevented
+    // target , toElement , srcElement, currentTarget
+    //clientX, clientY, ScreenX, ScreenY
+
+    //Event bubbling and Event Propagation ::
+    /*
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");
+    },false);
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl clicked"); // here event bubbling hapening (both events executed), the above event is also called acalled bubbling effect
+        // to avoid it we will use one function to stop bubbling
+        e.stopPropagation();
+        
+    },false); 
+     document.getElementById('google').addEventListener('click', function(e){
+        console.log("google clicked");
+        e.stopPropagation();
+        e.preventDefault();
+     },false);
+     */
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target.parentNode); // we are clicking on image so it's target is img, and its parent is li (as we want to complete li not just image)
+        // let removeIt = e.target.parentNode // gives li element
+        // // removeIt.remove() // this will remove the li element (this is new method)
+        // removeIt.parentNode.removeChild(removeIt) // here we take parent of li which is ul, then ask ul to remove its chile which is li.
+        // // any of one can be used
+        // // by mistakely if you click on li then whole ul will be gone 
+        // Solution :
+        console.log(e.target.tagName);
+        if (e.target.tagName == 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove();
+        }
+    },false);
+
+
+</script>
+</html>

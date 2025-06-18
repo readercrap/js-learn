@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo SetInterval</title>
+</head>
+<body>
+    <h1>Chai Aur Javascript</h1>
+    <button id="start">START</button>
+    <button id="stop" >STOP</button>
+    <br>
+    <br>
+    <label></label>
+    
+</body>
+<script>
+    clock = document.querySelector("label");
+    const sayDate = function(str){
+        const date = new Date(Date.now());
+        // console.log(str , date.toLocaleTimeString());
+        clock.innerHTML = date.toLocaleTimeString();
+    }
+    let intervalId ; 
+    // now to stop it we need to stop this setInterval
+    // clearInterval(intervalId)
+
+    // Lets handle it will start and stop button
+    document.querySelector("#start").addEventListener("click", function(e){
+        intervalId = setInterval(sayDate,1000)
+    })
+    document.querySelector("#stop").addEventListener("click", function(e){
+        clearInterval(intervalId)
+        clock.innerHTML = "Clock Stopped"
+    })
+
+</script>
+</html>
